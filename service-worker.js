@@ -1,7 +1,7 @@
 const CACHE_NAME = 'base64-v1.0';
 const RESOURCES_TO_PRELOAD = [
 	'index.html',
-	'icons/icon-256x256.png',
+	'icons/icon-256x256.jpg',
 	'register-worker.js',
 	'manifest.json'
 	//'offline-404.html'
