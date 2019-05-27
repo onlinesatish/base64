@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+textarea{
+width:100%;
+height:150px;
+}
+img{width:100%;margin-top:5px;border:1px solid;}
+</style>
+<title>Get base64 Source Code</title>
+<meta charset="utf-8" />
+<meta name="description" content="Get online base64 code of your image from here." />
+<meta name="keywords" content="Convert image into base64, Get base64 code online, online base64 converter" />
+<meta name="viewport" content="width=device-width" >
+</head>
+<body>
+<textarea id="code" ></textarea><button onclick="copyCode()">Copy Code</button><br><br>
+<form id="form1" runat="server">
+    <input type='file' id="imgInp" accept="image/*" />
+    <img id="blah" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGvSURBVFhH7ZTtSgJBFEB9u16tRygi+yL6Ef2I7EMiCiIkslKjUDOtNKEPK/pRRO3c7s297aQ3211hZ6w9cBB3Zpmzs6OJmBgbGBrOgC26Sd+hARv4G4G1RxW5DHXounl2BfK1yAPrTwqe3wAU9rzgZwO/8xhjNJCidF7fvbUYo4GO1/HFuTvGGA2k16tj3Q7yGaSdtPIM9pL5B4EPCjINBbtXwlgfMn0FVu4VbF0oWKm0pdCqMC+MTOjAYkvBetWLY3fqOI67Kt1DVnGM5q2h0jjLhAos3ChYPeuOY7cv2yGd91Xw2sKJgpGs8+liSZ5HMoED95pyVKf06vXFi3cKZo/aYbrzGExHRV+DZHwH0mK0M1LMT25iJO1a4VrBRK47jp3D8BI+AIeQjK/AMj7hRk2O+M00HoXxQzlMdzrvwPFtyMC08GMIIp21sQM5TDeJu5zD3Q4cKC0a1KWyv52kB8k2HXflCAPJFEYmfUSO7hsKJFOn+IPxEclEHkim0Mm8938oyRgJJJfRqR6RjLFAkiJnCnIk4yvQJIMdaItioI4+yaSDHWiLblJMjEESiQ+Dpbduz8DEAwAAAABJRU5ErkJggg==" alt="File Preview" />
+</form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script type="text/javascript">
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        
+        reader.onload = function (e) {
+            $('#blah').attr('src', e.target.result);
+        document.getElementById("code").innerHTML = e.target.result;
+        //document.write(e.target.result);
+        }
+        
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#imgInp").change(function(){
+    readURL(this);
+});
+
+function copyCode(){
+/* Get the text field */
+  var copyText = document.getElementById("code");
+
+  /* Select the text field */
+  copyText.select();
+
+  /* Copy the text inside the text field */
+  document.execCommand("copy");
+
+  /* Alert the copied text */
+  alert("Copied");
+}
+</script>
+</body>
+</html>
